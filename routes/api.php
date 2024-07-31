@@ -19,3 +19,10 @@ Route::middleware('auth:sanctum')->prefix('/user')->group(function () {
     Route::post('/change-photo-by-id/{id}', [App\Http\Controllers\Api\UserController::class, 'changePhotoById']);
     Route::delete('/delete-user-by-id/{id}', [App\Http\Controllers\Api\UserController::class, 'deleteUserById']);
 });
+
+Route::middleware('auth:sanctum')->prefix('/item')->group(function () {
+    Route::post('/add-item', [App\Http\Controllers\Api\ItemController::class, 'addItem']);
+    Route::get('/get-items', [App\Http\Controllers\Api\ItemController::class, 'getItems']);
+    Route::put('/update-item-by-id/{id}', [App\Http\Controllers\Api\ItemController::class, 'updateItemById']);
+    Route::delete('/delete-item-by-id/{id}', [App\Http\Controllers\Api\ItemController::class, 'deleteItemById']);
+});
