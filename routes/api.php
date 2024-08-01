@@ -26,3 +26,10 @@ Route::middleware('auth:sanctum')->prefix('/item')->group(function () {
     Route::put('/update-item-by-id/{id}', [App\Http\Controllers\Api\ItemController::class, 'updateItemById']);
     Route::delete('/delete-item-by-id/{id}', [App\Http\Controllers\Api\ItemController::class, 'deleteItemById']);
 });
+
+Route::middleware('auth:sanctum')->prefix('/report')->group(function () {
+    Route::post('/add-report', [App\Http\Controllers\Api\ReportController::class, 'store']);
+    Route::get('/get-reports', [App\Http\Controllers\Api\ReportController::class, 'index']);
+    Route::put('/update-report-by-id/{id}', [App\Http\Controllers\Api\ReportController::class, 'update']);
+    Route::delete('/delete-report-by-id/{id}', [App\Http\Controllers\Api\ReportController::class, 'destroy']);
+});
